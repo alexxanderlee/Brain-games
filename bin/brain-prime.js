@@ -3,19 +3,19 @@ import readlineSync from 'readline-sync';
 import greeting from '../src/cli.js';
 import {
   getRandomInt,
-  isEven,
+  isPrime,
   isCorrectAnswer,
   isWin,
 } from '../src/games/index.js';
 
 const userName = greeting();
-console.log('Answer "yes" if the number is even, otherwise answer "no".');
+console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
 
 let correctAnswersCount = 0;
 
 while (correctAnswersCount < 3) {
   const number = getRandomInt(0, 30);
-  const correctAnswer = isEven(number) ? 'yes' : 'no';
+  const correctAnswer = isPrime(number) ? 'yes' : 'no';
 
   console.log(`Question: ${number}`);
   const answer = readlineSync.question('Your answer: ');

@@ -9,6 +9,8 @@ export const getRandomOperation = () => {
   return operations[rand];
 };
 
+export const isEven = (number) => number % 2 === 0;
+
 export const calculate = (a, b, oper) => {
   switch (oper) {
     case '+':
@@ -41,6 +43,16 @@ export const getRandomProgression = () => {
     progression.push(initialTerm + (step - 1) * difference);
   }
   return progression;
+};
+
+export const isPrime = (number) => {
+  if (number > 1) {
+    for (let i = 2; i <= Math.sqrt(number); i += 1) {
+      if (number % i === 0) return false;
+    }
+    return true;
+  }
+  return false;
 };
 
 export const isCorrectAnswer = (userAnswer, correctAnswer) => {
