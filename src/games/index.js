@@ -32,6 +32,17 @@ export const getGCD = (a, b) => {
   return getGCD(b, a % b);
 };
 
+export const getRandomProgression = () => {
+  const progression = [];
+  const initialTerm = getRandomInt(0, 30);
+  const difference = getRandomInt(1, 10);
+
+  for (let step = 1; step <= 10; step += 1) {
+    progression.push(initialTerm + (step - 1) * difference);
+  }
+  return progression;
+};
+
 export const isCorrectAnswer = (userAnswer, correctAnswer) => {
   if (userAnswer === correctAnswer) {
     console.log('Correct!');

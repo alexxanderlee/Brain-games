@@ -3,22 +3,24 @@ import readlineSync from 'readline-sync';
 import greeting from '../src/cli.js';
 import {
   getRandomInt,
-  getGCD,
+  getRandomProgression,
   isCorrectAnswer,
   isWin,
 } from '../src/games/index.js';
 
 const userName = greeting();
-console.log('Find the greatest common divisor of given numbers.');
+console.log('What number is missing in the progression?');
 
 let correctAnswersCount = 0;
 
 while (correctAnswersCount < 3) {
-  const num1 = getRandomInt(0, 100);
-  const num2 = getRandomInt(0, 100);
-  const correctAnswer = getGCD(num1, num2);
+  const progression = getRandomProgression();
+  const missingElementPosition = getRandomInt(0, 9);
+  const correctAnswer = progression[missingElementPosition];
+  progression[missingElementPosition] = '..';
+  const progressionString = progression.join(' ');
 
-  console.log(`Question: ${num1} ${num2}`);
+  console.log(`Question: ${progressionString}`);
   const answer = Number(readlineSync.question('Your answer: '));
 
   if (isCorrectAnswer(answer, correctAnswer)) {
