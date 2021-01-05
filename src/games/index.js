@@ -25,6 +25,13 @@ export const calculate = (a, b, oper) => {
   }
 };
 
+export const getGCD = (a, b) => {
+  if (b === 0) {
+    return a;
+  }
+  return getGCD(b, a % b);
+};
+
 export const isCorrectAnswer = (userAnswer, correctAnswer) => {
   if (userAnswer === correctAnswer) {
     console.log('Correct!');
